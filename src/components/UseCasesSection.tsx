@@ -2,7 +2,7 @@ import { ArrowRight } from 'lucide-react';
 
 const UseCasesSection = () => {
   return (
-    <section className="bg-[#F5F5F5] px-6 py-24">
+    <section className="bg-[#F5F5F5] px-4 md:px-6 py-16 md:py-24">
       <div className="max-w-[88rem] mx-auto grid grid-cols-1 md:grid-cols-2 gap-8 items-start">
         {/* Left Column */}
         <div className="md:pr-12 md:pt-2">
@@ -27,7 +27,7 @@ const UseCasesSection = () => {
           {/* Content */}
           <div className="relative z-10 p-10 md:p-12">
             <h3
-              className="text-white text-4xl md:text-5xl font-medium leading-tight mb-5"
+              className="text-white text-3xl sm:text-4xl md:text-5xl font-medium leading-tight mb-5"
               style={{ letterSpacing: '-0.03em' }}
             >
               Sales Outreach

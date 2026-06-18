@@ -1,13 +1,13 @@
 const CTABannerSection = () => {
   return (
-    <section className="bg-[#F5F5F5] px-6 pb-24">
+    <section className="bg-[#F5F5F5] px-4 md:px-6 pb-16 md:pb-24">
       <div className="max-w-[88rem] mx-auto">
         <div
-          className="rounded-2xl p-12 md:p-16 text-center"
+          className="rounded-2xl p-6 sm:p-12 md:p-16 text-center"
           style={{ backgroundColor: '#2B2644' }}
         >
           <h2
-            className="text-white text-4xl md:text-5xl font-medium leading-tight mb-4"
+            className="text-white text-3xl sm:text-4xl md:text-5xl font-medium leading-tight mb-4"
             style={{ letterSpacing: '-0.03em' }}
           >
             Ready to get started?

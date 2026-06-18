@@ -8,13 +8,13 @@ const reasons = [
 
 const WhyChooseUsSection = () => {
   return (
-    <section id="about" className="bg-[#F5F5F5] px-6 py-24">
+    <section id="about" className="bg-[#F5F5F5] px-4 md:px-6 py-16 md:py-24">
       <div className="max-w-[88rem] mx-auto">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-start">
           {/* Left: Heading */}
           <div>
             <h2
-              className="text-black text-4xl md:text-5xl font-medium leading-tight mb-6"
+              className="text-black text-3xl sm:text-4xl md:text-5xl font-medium leading-tight mb-6"
               style={{ letterSpacing: '-0.03em' }}
             >
               Why teams choose us

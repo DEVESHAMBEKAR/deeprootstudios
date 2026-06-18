@@ -2,14 +2,14 @@ import { ArrowRight } from 'lucide-react';
 
 const InfoSection = () => {
   return (
-    <section id="services" className="bg-[#F5F5F5] px-6 py-24">
+    <section id="services" className="bg-[#F5F5F5] px-4 md:px-6 py-16 md:py-24">
       <div className="max-w-[88rem] mx-auto">
         {/* Row 1: 2-col grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 mb-16 items-start">
           {/* Left: Heading + Button */}
           <div>
             <h2
-              className="text-black text-4xl md:text-5xl font-medium leading-tight mb-8"
+              className="text-black text-3xl sm:text-3xl sm:text-4xl md:text-5xl font-medium leading-tight mb-6 md:mb-8"
               style={{ letterSpacing: '-0.03em' }}
             >
               What We Do
@@ -23,7 +23,7 @@ const InfoSection = () => {
           </div>
 
           {/* Right: Paragraph */}
-          <p className="text-black/70 text-2xl md:text-3xl leading-relaxed">
+          <p className="text-black/70 text-xl sm:text-2xl md:text-3xl leading-relaxed">
             We provide structured, verified business data — contacts,
             directories, and custom datasets — built for teams that need
             reliable information for outreach and growth.

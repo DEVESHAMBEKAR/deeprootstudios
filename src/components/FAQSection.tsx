@@ -37,10 +37,10 @@ const FAQSection = () => {
   };
 
   return (
-    <section className="bg-[#F5F5F5] px-6 py-24">
+    <section className="bg-[#F5F5F5] px-4 md:px-6 py-16 md:py-24">
       <div className="max-w-[42rem] mx-auto">
         <h2
-          className="text-black text-4xl md:text-5xl font-medium leading-tight mb-12"
+          className="text-black text-3xl sm:text-4xl md:text-5xl font-medium leading-tight mb-12"
           style={{ letterSpacing: '-0.03em' }}
         >
           Common Questions
