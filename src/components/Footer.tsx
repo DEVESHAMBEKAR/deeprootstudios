@@ -1,4 +1,4 @@
-import LogoIcon from './LogoIcon';
+
 
 const Footer = () => {
   return (
@@ -7,11 +7,8 @@ const Footer = () => {
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-10 mb-12">
           {/* Col 1: Brand */}
           <div>
-            <div className="flex items-center gap-2 mb-4">
-              <LogoIcon className="w-6 h-6 text-black" />
-              <span className="text-xl font-medium tracking-tight text-black">
-                DRS
-              </span>
+            <div className="flex items-center mb-4">
+              <img src="/logo.png" alt="DRS Logo" className="h-16 w-auto" />
             </div>
             <p className="text-black/60 text-sm leading-relaxed mb-3">
               Data collection services

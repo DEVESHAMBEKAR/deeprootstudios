@@ -1,4 +1,5 @@
 import { ArrowRight } from 'lucide-react';
+import { useEffect, useRef } from 'react';
 
 const industries = [
   {
@@ -70,6 +71,73 @@ const industries = [
 ];
 
 const HeroSection = () => {
+  const videoRef = useRef<HTMLVideoElement>(null);
+  const prevX = useRef<number | null>(null);
+  const targetTime = useRef<number>(0);
+  const isSeeking = useRef<boolean>(false);
+
+  useEffect(() => {
+    const video = videoRef.current;
+    if (!video) return;
+
+    // Mobile Autoplay Hook
+    const checkMobilePlayback = () => {
+      if (window.innerWidth < 1024) {
+        video.autoplay = true;
+        video.play().catch(() => {});
+      } else {
+        video.pause();
+      }
+    };
+
+    checkMobilePlayback();
+    window.addEventListener('resize', checkMobilePlayback);
+
+    // Desktop Mouse Scrubbing Hook
+    const handleMouseMove = (e: MouseEvent) => {
+      if (window.innerWidth < 1024 || !video.duration) {
+        prevX.current = null;
+        return;
+      }
+
+      if (prevX.current === null) {
+        prevX.current = e.clientX;
+        targetTime.current = video.currentTime;
+        return;
+      }
+
+      const delta = e.clientX - prevX.current;
+      prevX.current = e.clientX;
+
+      targetTime.current += (delta / window.innerWidth) * 0.8 * video.duration;
+      
+      // Clamp the time between 0 and duration
+      targetTime.current = Math.max(0, Math.min(video.duration, targetTime.current));
+
+      if (!isSeeking.current) {
+        isSeeking.current = true;
+        video.currentTime = targetTime.current;
+      }
+    };
+
+    const handleSeeked = () => {
+      isSeeking.current = false;
+      if (Math.abs(video.currentTime - targetTime.current) > 0.01) {
+        isSeeking.current = true;
+        video.currentTime = targetTime.current;
+      }
+    };
+
+    window.addEventListener('mousemove', handleMouseMove);
+    video.addEventListener('seeked', handleSeeked);
+
+    return () => {
+      window.removeEventListener('resize', checkMobilePlayback);
+      window.removeEventListener('mousemove', handleMouseMove);
+      video.removeEventListener('seeked', handleSeeked);
+    };
+  }, []);
+
   return (
     <div className="flex-1 px-6 pt-20 pb-6 flex items-end">
       <div
@@ -80,6 +148,22 @@ const HeroSection = () => {
             'linear-gradient(135deg, #e8e0f0 0%, #f0ece4 50%, #e4ecf0 100%)',
         }}
       >
+        {/* Container element: Background Video */}
+        <div className="order-last lg:order-none relative lg:absolute lg:inset-0 lg:z-0 overflow-hidden pointer-events-none w-full aspect-square md:aspect-video lg:aspect-auto lg:h-full bg-neutral-50 lg:bg-transparent">
+          <video
+            ref={videoRef}
+            muted
+            playsInline
+            preload="auto"
+            className="w-full h-full object-cover object-right lg:object-right-bottom"
+          >
+            <source
+              src="https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260601_110537_3a579fa0-7bbc-4d94-9d25-0e816c7840f5.mp4"
+              type="video/mp4"
+            />
+          </video>
+        </div>
+
         {/* Content Overlay */}
         <div className="relative z-10 flex flex-col items-start justify-start h-full p-12 pt-36">
           <h1
