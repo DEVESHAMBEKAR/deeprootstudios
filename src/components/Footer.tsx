@@ -8,7 +8,7 @@ const Footer = () => {
           {/* Col 1: Brand */}
           <div>
             <div className="flex items-center mb-4">
-              <img src="/logo.png" alt="DRS Logo" className="h-16 w-auto" />
+              <img src="/logo.png" alt="DRS Logo" className="h-9 w-auto" />
             </div>
             <p className="text-black/60 text-sm leading-relaxed mb-3">
               Data collection services

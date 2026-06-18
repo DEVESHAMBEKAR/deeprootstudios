@@ -8,7 +8,7 @@ const Navbar = () => {
       <div className="flex items-center justify-between max-w-[88rem] mx-auto">
         {/* Left: Logo */}
         <div className="flex-1 flex items-center">
-          <img src="/logo.png" alt="DRS Logo" className="h-16 w-auto" />
+          <img src="/logo.png" alt="DRS Logo" className="h-9 w-auto" />
         </div>
 
         {/* Center: Nav Links */}
